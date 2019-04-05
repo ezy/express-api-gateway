@@ -1,24 +1,33 @@
-🔩 Node Express Lite Boilerplate
-==================================
+# ⛩️ Node Express Docker API Gateway
 
-This is an extremely lightweight opinionated boilerplate for Node using Express JS with middleware and dev env setup.
+A simple lightweight API gateway that will run in a docker container, authenticate using a JWT strategy and then proxy all `req.url` strings to the specified proxy URL. Great for micro-service architecture and abstracting your security layer away from your primary app if required.
 
-Getting Started
----------------
+## Installation
 
 You'll need docker if you don't already ahve it installed. Containerize all the things!
 
+Adjust the ENV vars in `.env.development` to your liking then:
+
 ```sh
 # clone it
-git clone git@github.com:ezy/lite-boiler.git
-cd lite-boiler
+git clone git@github.com:ezy/express-api-gateway.git
+cd express-api-gateway
+
 
 # Build and start your server
 docker-compose up --build
 
 ```
+API will be available at `localhost:<PORT>` for http requests.
 
-License
--------
+## API Endpoints
+
+- `/oauth/token` : uses req.body `{ "userId": "ezy", "password": "Secure" }` to return a valid JWT token
+- `/*`: (JWT secure) wildcard proxy sends url.req to specified URL
+
+### Postman client
+Import the postman file located at `./scalpelway.postman_collection.json` to test the endpoints.
+
+## License
 
 MIT
