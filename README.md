@@ -6,7 +6,7 @@ A simple lightweight API gateway that will run in a docker container, authentica
 
 You'll need docker if you don't already ahve it installed. Containerize all the things!
 
-Adjust the ENV vars in `.env.development` to your liking then:
+Adjust the ENV vars in `.env.development` to your liking and adjust config.js to include setting your proxyUrl then:
 
 ```sh
 # clone it
