@@ -1,0 +1,13 @@
+version: '3.6'
+
+services:
+  scalpelway:
+    restart: always
+    build: .
+    volumes:
+      - .:/usr/src/app/
+      - /usr/src/app/node_modules
+    ports:
+      - "8081:8081"
+    command: npm run dev
+    env_file: .env.development
