@@ -4,8 +4,8 @@ const config = require('../config');
 const authenticate = (req, res, next) => {
   const user = {
     userId: req.body.userId,
-    password: req.body.password
-   };
+    password: req.body.password,
+  };
 
   if (!user.userId || !user.password) {
     return res
@@ -20,7 +20,6 @@ const authenticate = (req, res, next) => {
     user,
     token,
   });
-
 };
 
 module.exports = {
