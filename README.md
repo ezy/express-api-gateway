@@ -1,6 +1,6 @@
 # ⛩️ Node Express Docker API Gateway
 
-A simple lightweight API gateway that will run in a docker container, authenticate using a JWT strategy and then proxy all `req.url` strings to the specified proxy URL. Great for micro-service architecture and abstracting your security layer away from your primary app if required.
+A simple lightweight API gateway that will run in a docker container, authenticate using a JWT strategy and then conditionally auto-generate routes from config or proxy all `req.url` strings to the specified proxy URL. Great for micro-service architecture and abstracting your security layer away from your primary app if required.
 
 ## Installation
 
