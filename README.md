@@ -42,7 +42,7 @@ A basic JWT token endpoint is available unconfigured at:
 
 ## HTTP / HTTPS
 
-App is configured for both http and https and runs http out of the box. To enable https generate (or provide) your https certs in the root directory, and set `config.protocol: 'https'`.
+App is configured for both http and https and runs http out of the box. To enable https generate (or provide) your https certs (private key, certificate, authority(optional)) in the root directory, and set `config.protocol: 'https'`.
 
 ### Postman client
 
