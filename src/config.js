@@ -1,17 +1,19 @@
 module.exports = {
+  env: process.env.NODE_ENV,
   hostUrl: 'https://jsonplaceholder.typicode.com',
   proxyAll: false,
   authKey: true,
   apiKey: '123456',
   jwtSecret: process.env.JWT_SECRET,
+  protocol: 'http',
   http: {
     port: process.env.PORT,
   },
   https: {
+    port: process.env.PORT,
     cert: 'certificate.pem',
     key: 'privateKey.pem',
     ca: 'authority.pem',
-    port: process.env.PORT,
   },
   routes: {
     get: [{

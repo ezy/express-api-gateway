@@ -40,6 +40,10 @@ A basic JWT token endpoint is available unconfigured at:
 
 - `/oauth/token` POST: uses req.body `{ "userId": "ezy", "password": "Secure" }` to return a valid JWT token
 
+## HTTP / HTTPS
+
+App is configured for both http and https and runs http out of the box. To enable https generate (or provide) your https certs in the root directory, and set `config.protocol: 'https'`.
+
 ### Postman client
 
 Import the postman file located at `./scalpelway.postman_collection.json` to test the endpoints.
