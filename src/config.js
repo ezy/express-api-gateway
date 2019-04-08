@@ -1,7 +1,7 @@
 module.exports = {
   proxyUrl: 'https://jsonplaceholder.typicode.com',
-  proxyAll: true,
-  auth: true,
+  proxyAll: false,
+  authKey: true,
   apiKey: '123456',
   jwtSecret: process.env.JWT_SECRET,
   http: {
@@ -17,20 +17,23 @@ module.exports = {
     get: [{
       url: 'https://httpbin.org',
       path: '/status/200',
-      auth: false,
     }, {
       path: '/users',
+      auth: true,
     }, {
       path: '/posts',
     }],
     post: [{
       path: '/posts',
+      auth: true,
     }],
     put: [{
       path: '/posts/1',
+      auth: true,
     }],
     delete: [{
       path: '/posts/1',
+      auth: true,
     }],
   },
 };
