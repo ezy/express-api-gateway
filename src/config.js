@@ -1,5 +1,5 @@
 module.exports = {
-  proxyUrl: 'https://jsonplaceholder.typicode.com',
+  hostUrl: 'https://jsonplaceholder.typicode.com',
   proxyAll: false,
   authKey: true,
   apiKey: '123456',
@@ -15,7 +15,7 @@ module.exports = {
   },
   routes: {
     get: [{
-      url: 'https://httpbin.org',
+      host: 'https://httpbin.org',
       path: '/status/200',
     }, {
       path: '/users',

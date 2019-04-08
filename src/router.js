@@ -9,7 +9,7 @@ const secret = config.jwtSecret;
 
 const wildProxy = (req, res, next) => {
   const proxy = requestProxy({
-    url: `${config.proxyUrl}${req.url}`,
+    url: `${config.hostUrl}${req.url}`,
   });
   proxy(req, res, next);
 };
@@ -23,12 +23,12 @@ if (config.proxyAll) {
 } else {
   each(config.routes, (route, k) => {
     each(route, (r) => {
-      const url = r.url || config.proxyUrl;
+      const host = r.host || config.hostUrl;
       // setup route from config file
       const routeConfig = [
         r.path,
         r.auth ? jwt({ secret }) : null,
-        requestProxy({ url: `${url}${r.path}` }),
+        requestProxy({ url: `${host}${r.path}` }),
       ];
       // use http req type key to cycle and create routes dynamically
       router[k](...routeConfig.filter(e => e));
