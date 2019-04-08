@@ -28,17 +28,17 @@ Specify your endpoints in `config.js` under the `routes` object using the correc
 - path: { string } the target path for the req and res,
 - auth: { boolean } set to true to require JWT authentication for the endpoint
 
-### Authentication
-
-A basic JWT token endpoint is available unconfigured at:
-
-- `/oauth/token` POST: uses req.body `{ "userId": "ezy", "password": "Secure" }` to return a valid JWT token
-
 ### Wildcard proxy
 
 Set `proxyAll: true` in config to proxy all requests to `config.hostUrl`. The Authentication Bearer header JWT is turned on by default for `proxyAll`.
 
 - `/*`: (JWT secure) wildcard proxy sends url.req to specified `config.hostUrl`.
+
+### Authentication
+
+A basic JWT token endpoint is available unconfigured at:
+
+- `/oauth/token` POST: uses req.body `{ "userId": "ezy", "password": "Secure" }` to return a valid JWT token
 
 ### Postman client
 
