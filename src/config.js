@@ -1,26 +1,36 @@
 module.exports = {
+  proxyUrl: 'https://jsonplaceholder.typicode.com',
+  proxyAll: true,
+  auth: true,
+  apiKey: '123456',
+  jwtSecret: process.env.JWT_SECRET,
   http: {
     port: process.env.PORT,
   },
   https: {
-    cert: 'cert.pem',
-    key: 'privkey.pem',
-    ca: 'chain.pem',
-    port: 8443,
+    cert: 'certificate.pem',
+    key: 'privateKey.pem',
+    ca: 'authority.pem',
+    port: process.env.PORT,
   },
-  auth: true,
-  jwtSecret: process.env.JWT_SECRET,
-  apiKey: '123456',
-  services: {
-    ip: {
-      path: '/ip',
+  routes: {
+    get: [{
       url: 'https://httpbin.org',
+      path: '/status/200',
       auth: false,
-    },
-    quote: {
-      path: '/jokes/*',
-      rewrite: '/jokes/random',
-    },
+    }, {
+      path: '/users',
+    }, {
+      path: '/posts',
+    }],
+    post: [{
+      path: '/posts',
+    }],
+    put: [{
+      path: '/posts/1',
+    }],
+    delete: [{
+      path: '/posts/1',
+    }],
   },
-  proxyUrl: 'https://jsonplaceholder.typicode.com',
 };
