@@ -7,7 +7,7 @@ const config = require('./config');
 
 const secret = config.jwtSecret;
 
-const proxyRequest = (req, res, next) => {
+const wildProxy = (req, res, next) => {
   const proxy = requestProxy({
     url: `${config.proxyUrl}${req.url}`,
   });
@@ -19,7 +19,7 @@ router.use('/oauth', require('./auth/auth.routes'));
 if (config.proxyAll) {
   router.route('/*')
     .all(jwt({ secret }))
-    .get(proxyRequest);
+    .get(wildProxy);
 } else {
   each(config.routes, (route, k) => {
     each(route, (r) => {

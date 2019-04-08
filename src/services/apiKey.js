@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   if (apiKey && apiKey === config.apiKey) {
     return next();
   }
-  const error = 'Unauthorized';
-  res.status(401, error);
-  next(error);
+  const err = 'Unauthorized';
+  res.status(401, err);
+  next(err);
 };
